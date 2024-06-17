@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/Aleph-Kim/apidemo', credentialsId: 'aleph-github-id'
+                git branch: 'main', url: 'https://github.com/aleph-kim/apirdsdemo.git', credentialsId: 'aleph-github-id'
             }
         }
         stage('Build') {
