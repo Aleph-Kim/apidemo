@@ -26,7 +26,7 @@ pipeline {
                 echo 'Deploying...'
                 // deploy steps
                  withAWS(credentials: 'lion-user') {
-                    sh 'aws s3 cp build/libs/apirdsdemo-0.0.1-SNAPSHOT.jar s3://aleph-jenkins-build/'
+                    sh 'aws s3 cp build/libs/apidemo-0.0.1-SNAPSHOT.jar s3://aleph-jenkins-build/'
                 }
             }
         }
