@@ -11,8 +11,8 @@ pipeline {
             steps {
                 echo 'Building...'
                 // build steps
-		sh 'chmod 755 ./gradlew'
-		sh './gradlew build'
+                sh 'chmod 755 ./gradlew'
+                sh './gradlew build'
             }
         }
         stage('Test') {
@@ -25,6 +25,9 @@ pipeline {
             steps {
                 echo 'Deploying...'
                 // deploy steps
+                 withAWS(credentials: 'aws_carami') {
+                    sh 'aws s3 cp build/libs/apirdsdemo-0.0.1-SNAPSHOT.jar s3://aleph-jenkins-build/'
+                }
             }
         }
     }
